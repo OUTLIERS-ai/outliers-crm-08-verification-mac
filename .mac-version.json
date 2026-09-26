@@ -1,0 +1,78 @@
+{
+  "main": "outliers-crm-08-verification",
+  "main_commit": "7c7a167579e5eb4eaf3c8279a1bd32f8b1d79042",
+  "mac": "outliers-crm-08-verification-mac",
+  "macgen_commit": "50a7935",
+  "date": "2026-09-26",
+  "fingerprint": "d56af8d49746a63ea4a396a4c4187ea86b1f570119a81e884372f3ca71ba144a",
+  "left_out_of_fingerprint": [
+    ".mac-version.json",
+    "guide/Layer-8-Verification (Mac).pdf",
+    "guide/Layer-8-Verification.html"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "category": "same",
+      "sha256": "271540188ae129e9d99d3a8ad965db71df8c7cd7abfacb3580f60a5b61de5c1a"
+    },
+    {
+      "path": "README.md",
+      "category": "changed",
+      "sha256": "3a6a554330de579fc671e605a6970003f95eaac31339fdfe117da7b2babf69e8"
+    },
+    {
+      "path": "WHAT-I-STOLE.md",
+      "category": "same",
+      "sha256": "f7fa6494325c587bf7cbd334d33c156663b321cacb1ad15df2896c8d8d459b95"
+    },
+    {
+      "path": "engine/crm_paths.py",
+      "category": "same",
+      "sha256": "ab10c6f724efc213d756862c20e42f31a0f96d17e6f54122cea95c075d1b54ab"
+    },
+    {
+      "path": "engine/fourbox.py",
+      "category": "same",
+      "sha256": "413b6bb8fc2c7d9e4300f2f0826277e2cf90b778883e45ef548f57a2b6a60bd9"
+    },
+    {
+      "path": "engine/safe_write.py",
+      "category": "same",
+      "sha256": "34708344aa0a1d531c356306b33f76b33670413fd96f045dfcc21271deebc026"
+    },
+    {
+      "path": "engine/watchdog.py",
+      "category": "same",
+      "sha256": "e9848a65d1e9de9157127665c247bdd68585c469d262fd7d3e5c91b1520a2c8b"
+    },
+    {
+      "path": "guide/Layer-8-Verification (Mac).pdf",
+      "category": "left out of the fingerprint"
+    },
+    {
+      "path": "guide/Layer-8-Verification.html",
+      "category": "left out of the fingerprint"
+    },
+    {
+      "path": "install.py",
+      "category": "same",
+      "sha256": "9e7018ff6985c1c2eab8a8a87b72d86d45c62e017e0b37b270c9c3c181d3950b"
+    },
+    {
+      "path": "schema/expectations.json",
+      "category": "same",
+      "sha256": "b43be2adafcf960a597d04e429df959780b28751892efbaed15527355f7f78e6"
+    },
+    {
+      "path": "tests/test_fourbox.py",
+      "category": "same",
+      "sha256": "fb241b8ae1798104e6a9d42907c6b377719db64cb1ac13b3a3e1567b66de025d"
+    },
+    {
+      "path": "tests/test_watchdog.py",
+      "category": "same",
+      "sha256": "f5e248ba2a459bc90260645239bd0abcb816def861dc19f9438391198d0cb386"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "_comment": [
+    "WHAT SHOULD BE TRUE ABOUT YOUR SYSTEM.",
+    "",
+    "You own this file. The watchdog READS it and never edits it: a system that",
+    "can relax its own expectations has none. Weakening a check here is a",
+    "decision, made deliberately, by you.",
+    "",
+    "The watchdog compares each expectation against what is actually true and",
+    "reports the difference. It does not fix anything. A watchdog that repairs",
+    "what it finds stops being a measurement and becomes another writer nobody",
+    "is watching.",
+    "",
+    "WHY THIS EXISTS. An automated system fails silently by default. Every run",
+    "exits cleanly whether it produced everything or nothing, because producing",
+    "nothing is not an error: it is a successful run of a thing that found",
+    "nothing to do. A long run of those looks, from every log and every exit",
+    "code, exactly like a system working perfectly. One person working alone has",
+    "no colleague to lean over and say that looks wrong.",
+    "",
+    "WRITING YOUR OWN. A check that is green the day you write it is checking",
+    "something that was never going to break. Write checks against things you",
+    "have seen go wrong, and against things whose failure you would not notice.",
+    "The second kind matters more.",
+    "",
+    "Each entry needs an id, a severity, what you expect in plain words, why it",
+    "is here, and the conditions under which it would go red. If the id is not",
+    "one the watchdog knows how to check, it will tell you so rather than",
+    "quietly passing."
+  ],
+  "version": "1.0.0",
+  "owner": "you",
+
+  "checks": [
+    {
+      "id": "the-log-is-still-growing",
+      "severity": "critical",
+      "quiet_days": 7,
+      "expect": "something has been captured recently",
+      "why": "This is the one that catches a system which runs, exits cleanly and does nothing. No other check here would notice, because every other check is perfectly happy with a system that has stopped.",
+      "red_when": "capture breaks, a source changes shape, or a credential expires. All three fail quietly and none of them produce an error."
+    },
+    {
+      "id": "every-record-has-an-identifier",
+      "severity": "critical",
+      "expect": "every person has the identifier you chose in Layer 2",
+      "why": "A record with no identifier cannot be matched, held, or counted. It is a name in a folder.",
+      "red_when": "records are created by hand, or imported from a source that did not carry the identifier."
+    },
+    {
+      "id": "one-record-per-person",
+      "severity": "critical",
+      "expect": "no two records share one identifier",
+      "why": "Two records for one person means two half-histories and no way to tell which is right. Everything above Layer 2 assumes this holds.",
+      "red_when": "the same person arrives from two sources under two spellings of their name."
+    },
+    {
+      "id": "events-name-a-person",
+      "severity": "medium",
+      "at_least_percent": 80,
+      "expect": "most events can be attributed to somebody",
+      "why": "An event nobody can attribute is history the system cannot use. A pile of them means a source is producing events about people who are not in your records.",
+      "red_when": "a new source is connected before the people it talks about exist as records."
+    },
+    {
+      "id": "held-people-are-not-on-the-page",
+      "severity": "critical",
+      "expect": "nobody you picked up by hand appears on the daily page",
+      "why": "The hold exists to stop the system acting on a conversation you took over. A held person on the action list defeats it completely, and the failure is invisible unless something looks.",
+      "red_when": "a hold is recorded under an identifier the ordering does not check."
+    },
+    {
+      "id": "holds-carry-an-identifier",
+      "severity": "high",
+      "expect": "every hold has something more precise than a name attached",
+      "why": "A check matches what it is given. A hold recorded under a bare name is invisible to anything holding only a link, and a name-only hold cannot tell two people apart.",
+      "red_when": "a hold is added by hand, or by a source that only knew the person's name."
+    },
+    {
+      "id": "nothing-writes-unsafely",
+      "severity": "critical",
+      "expect": "no code writes straight over a file in your CRM",
+      "why": "Opening a file for writing empties it before a single byte of the new content arrives. If anything goes wrong in between, the old content is gone and there is no copy.",
+      "red_when": "somebody adds a quick script. It is always a quick script."
+    }
+  ]
+}
